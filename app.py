@@ -12,7 +12,7 @@ app.secret_key = 'qufu20240116ldy'
 @app.route('/')
 def login_form():
     # 这里将返回登录表单的HTML
-    return render_template('login.html')
+    return render_template('index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -32,7 +32,7 @@ def login():
             else:
                 # 教师登录
                 return redirect(url_for('admin'))
-    return render_template('login.html', error=error)
+    return render_template('index.html', error=error)
 
 
 @app.route('/questions')
