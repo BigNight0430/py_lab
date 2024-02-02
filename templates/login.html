@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python实验室</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-form {
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            border: none;
+            background-color: white; /* 背景颜色设置为灰色 */
+        }
+
+        .login-form h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
+
+        .form-control label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control input[type="text"],
+        .form-control input[type="password"] {
+            width: 90%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #dddddd;
+        }
+
+        .form-control input[type="submit"],
+        .form-control button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .form-control input[type="submit"]:hover,
+        .form-control button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Python实验室</h2>
+        <form action="/login" method="post">
+            <div class="form-control">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-control">
+                <label for="password">密码:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="form-control">
+                <input type="submit" name="action" value="学生登录">
+            </div>
+            <div class="form-control">
+                <input type="submit" name="action" value="教师登录">
+            </div>
+            {% if error %}
+                <p><strong>{{ error }}</strong></p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理页面</title>
+</head>
+<body>
+    <h1>管理页面</h1>
+
+    <!-- 文件上传表单 -->
+    <form action="/upload_file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <input type="submit" value="上传学生信息">
+    </form>
+
+    <!-- 删除表内容按钮 -->
+    <br>
+    <br>
+    <form action="/delete_users" method="post">
+        <input type="submit" value="删除所有用户">
+    </form>
+</body>
+</html>

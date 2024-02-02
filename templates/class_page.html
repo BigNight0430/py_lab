@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<a href="{{ url_for('user_page') }}" style="display: block; text-align: right;">我的账户</a>
+<a href="{{ url_for('login') }}" style="display: block; text-align: right;">返回登录</a>
+<br>
+<head>
+    <title>班级页面</title>
+    <!-- 这里可以添加CSS样式或引入外部样式表 -->
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;       /* 设置表格宽度为70% */
+            margin-left: auto; /* 左边距自动 */
+            margin-right: auto;/* 右边距自动 */
+            border-spacing: 0;
+        }
+        h1 {
+          text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .form-control {
+            display: flex;
+            align-items: center; /* 使标签和输入框左对齐 */
+            flex-direction: column;
+            margin-bottom: 10px; /* 添加一些间距 */
+        }
+
+        .form-control button {
+            width: 20%; /* 输入框和按钮宽度撑满容器 */
+            padding: 8px; /* 一些内边距 */
+            margin-top: 5px; /* 在标签和输入框之间添加一点空间 */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-control button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>你好，{{ username }}！</h2>
+    <h1>班级成绩表</h1>
+    <table border="1">
+        <tr>
+            <th>题号</th>
+            <th>学号</th>
+            <th>得分</th>
+            <th>运行时间</th>
+            <th>上传时间</th>
+        </tr>
+        <!-- 表格数据行将从Flask填充 -->
+        {% for row in data %}
+        <tr>
+            <td>{{ row.question_id }}</td>
+            <td>{{ row.stu_id }}</td>
+            <td>{{ row.score }}</td>
+            <td>{{ row.time_used }}</td>
+            <td>{{ row.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <!-- 返回题目列表的按钮 -->
+    <div class="form-control">
+        <button onclick="window.location.href='/questions'">返回题目列表</button>
+    </div>
+</body>
+</html>

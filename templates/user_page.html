@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的页面</title>
+    <style>
+
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 使标签和输入框左对齐 */
+            margin-bottom: 10px; /* 添加一些间距 */
+        }
+
+        .form-control input[type="password"],
+        .form-control input[type="submit"],
+        .form-control button {
+            width: 100%; /* 输入框和按钮宽度撑满容器 */
+            padding: 8px; /* 一些内边距 */
+            margin-top: 5px; /* 在标签和输入框之间添加一点空间 */
+        }
+
+        .form-control button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-control button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            width: 300px; /* 或其他您希望的宽度 */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>密码重置</h1>
+
+        <!-- 密码重置表单 -->
+        <form action="/reset_password" method="post">
+            <div class="form-control">
+                <label for="new_password">新密码:</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
+            <div class="form-control">
+                <label for="confirm_password">确认密码:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-control">
+                <input type="submit" value="重置密码">
+            </div>
+        </form>
+
+        <!-- 返回题目列表的按钮 -->
+        <div class="form-control">
+            <button onclick="window.location.href='/questions'">返回题目列表</button>
+        </div>
+    </div>
+</body>
+</html>
